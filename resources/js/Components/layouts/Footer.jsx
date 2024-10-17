@@ -1,14 +1,17 @@
 import {FaApple, FaChevronDown, FaGooglePlay} from "react-icons/fa";
+import {Link} from "@inertiajs/react";
 
 export default function Footer() {
+
+
     return (
-        <footer className="">
+        <footer className="hidden">
             <div className="bg-[#2E2E2E] md:pt-14 pt-5">
                 <div className="max-w-[1170px] px-5 mx-auto">
                     <div className="md:flex border-b pb-16 border-white">
                         <div className="md:w-[43.7%] md:border-none border-b border-white w-full px-[15px]">
                             <div className="md:pl-10 md:pr-2.5">
-                                <Link href="/">
+                                <Link href={route('home')}>
                                     <img
                                         src="/images/footer-logo.svg"
                                         className="md:w-auto w-[250px]"

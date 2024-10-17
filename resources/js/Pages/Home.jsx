@@ -1,8 +1,12 @@
 import Layout from "@/Layouts/Layout.jsx";
+import {Head} from "@inertiajs/react";
 
 export default function Home() {
     return (
         <Layout>
+            <Head title={"test"}/>
+            <h1>Home</h1>
+		<div className="hidden">
             <section className="bg-gradient-to-r from-neutral-200 to-[#B0B4B9] md:pt-[76px] pt-[50px]">
                 <div className="max-w-[1170px] mx-auto">
                     <div className="flex md:flex-nowrap flex-wrap items-start">
@@ -193,6 +197,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+			</div>
         </Layout>
     );
 }
