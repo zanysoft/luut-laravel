@@ -38,7 +38,7 @@ export default function SocialLogin({page, continueWithEmail}) {
                     </h2>
                     <p className="text-gray-600 text-base">
                         Don't have an account?{" "}
-                        <Link className="underline" href="/RegisterTab">Sign up</Link>
+                        <Link className="underline" href={route('register')}>Sign up</Link>
                     </p>
                 </div>
             ) : (
@@ -48,7 +48,7 @@ export default function SocialLogin({page, continueWithEmail}) {
                     </h2>
                     <p className="text-gray-600 text-base">
                         Already have an account?{" "}
-                        <Link className="underline" href="/LoginTab">Sign in</Link>
+                        <Link className="underline" href={route('login')}>Sign in</Link>
                     </p>
                 </div>
             )}
@@ -85,24 +85,23 @@ export default function SocialLogin({page, continueWithEmail}) {
 
                 <ul className="flex flex-row gap-5  mb-6">
                     <li className="w-1/2">
-                        <button
-                            type="button"
+                        <a
+                            href={route('auth.redirect', {'provider': 'facebook'})}
                             onClick={() => popupCenter("/facebook-signin", "Facebook Signin")}
                             className="border border-gray-1 w-full flex items-center rounded-lg p-[5px] text-black-1 text-base font-medium"
                         >
                             <img src="/images/facebook-icon.png" alt="no-img"/>
                             <span className="mx-auto">Facebook</span>
-                        </button>
+                        </a>
                     </li>
                     <li className="w-1/2">
-                        <button
-                            type="button"
-                            onClick={() => popupCenter("/linkedin-signin", "Linkedin Signin")}
+                        <a
+                            href={route('auth.redirect', {'provider': 'linkedin'})}
                             className="border border-gray-1 w-full flex items-center rounded-lg p-[5px] text-black-1 text-base font-medium"
                         >
                             <img src="/images/linkedin-icon.png" alt="no-img"/>
                             <span className="mx-auto">Linkedin</span>
-                        </button>
+                        </a>
                     </li>
                 </ul>
             </div>

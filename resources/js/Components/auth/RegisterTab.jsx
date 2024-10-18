@@ -105,7 +105,7 @@ export default function RegisterTab({onBack}) {
                 <p className="text-gray-600 text-base">
                     Already have an account?
                     <span className="underline ">
-                        <Link href="/LoginTab">Sign in</Link>
+                        <Link href={route('login')}>Sign in</Link>
           </span>
                 </p>
             </div>

@@ -34,7 +34,7 @@ export default function Header({menu}) {
                     className="flex md:flex-nowrap flex-wrap md:justify-between justify-center items-center w-full md:gap-12">
                     <div className="flex items-center justify-between md:w-fit w-full">
                         <Link
-                            href="/"
+                            href={route('home')}
                             className="inline-block lg:w-[250px] md:w-[150px] w-[150px] md:text-start text-center"
                         >
                             <img src="/images/logo.webp" className="m-0" alt=""/>
@@ -47,15 +47,16 @@ export default function Header({menu}) {
                         </div>
                     </div>
 
-                    {!isLoggedIn && <div className="flex flex-col md:flex-row items-center w-full md:m-0 mt-4 mb-2 md:gap-8 gap-3">
+                    {!isLoggedIn && <div
+                        className="md:flex flex-col md:flex-row items-center hidden w-full md:m-0 mt-4 mb-2 md:gap-8 gap-3">
                         <Link
-                            href="/login"
+                            href={route("login")}
                             className="bg-neutral-300 flex-1 w-full h-atuo block rounded-[10px] shadow-3xl font-bold text-xl text-balck-1000 px-5 py-[15px] transition-all ease-out duration-500 hover:-translate-y-2 text-center"
                         >
                             Sign in
                         </Link>
                         <Link
-                            href="/register"
+                            href={route("register")}
                             className="bg-neutral-300 flex-1 w-full block rounded-[10px] shadow-3xl font-bold text-xl text-balck-1000 px-5 py-[15px] text-center transition-all ease-out duration-500 hover:-translate-y-2"
                         >
                             Sign up
@@ -98,14 +99,31 @@ export default function Header({menu}) {
                             About Us
                         </Link>
                     </li>
-                    {isLoggedIn && <li>
+                    {isLoggedIn ? <li>
                         <Link
                             href={route('logout')}
                             className=" font-bold hover:text-blue-1000 inline-block py-4 text-xl text-balck-1000"
                         >
                             Sign Out
                         </Link>
-                    </li>}
+                    </li> : <>
+                        <li className=" md:hidden ">
+                            <Link
+                                href={route('login')}
+                                className=" font-bold hover:text-blue-1000 inline-block py-4 text-xl text-balck-1000"
+                            >
+                                Sign in
+                            </Link>
+                        </li>
+                        <li className=" md:hidden ">
+                            <Link
+                                href={route("register")}
+                                className=" font-bold hover:text-blue-1000 inline-block py-4 text-xl text-balck-1000"
+                            >
+                                Sign up
+                            </Link>
+                        </li>
+                    </>}
                 </ul>
             </div>
         </header>
