@@ -12,10 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
 
+        /*$middleware->redirectUsersTo(function ($request){
+            dd($request);
+        });*/
         $middleware->alias([
-            'auth' => \App\Http\Middleware\Authenticate::class
+            'auth' => \App\Http\Middleware\Authenticate::class,
+            'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         ]);
         $middleware->web(append: [
+            \App\Http\Middleware\RedirectIfNotAdmin::class,
             \App\Http\Middleware\HandleInertiaRequests::class,
             \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
         ]);

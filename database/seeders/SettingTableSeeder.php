@@ -18,16 +18,19 @@ class SettingTableSeeder extends Seeder
                 'key' => 'app',
                 'name' => 'Application Setting',
                 'values' => '{"name":"Luut Social","logo":"images/logo.png","email":"info@luut.social","phone":"","address":""}',
+                'status' => 1
             ], [
                 'id' => 2,
                 'key' => 'mail',
                 'name' => 'Mail Setting',
                 'values' => '{"from_email":"no-reply@luut.social","driver":"sendmail","timeout":"300"}',
+                'status' => 1
             ], [
                 'id' => 3,
                 'key' => 'seo',
                 'name' => 'SEO Setting',
-                'values' => '{"facebook_link":"","instagram_link":"","twitter_link":"","linkedin_link":""}',
+                'values' => '{"links":{"facebook":"#","instagram":"#","twitter":"#","linkedin":"#","youtube":"#","tiktok":"#"}}',
+                'status' => 1
             ]
         ];
 

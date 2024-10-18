@@ -26,6 +26,10 @@ class SettingController extends Controller
 
         $setting = Setting::where('key', $key)->first();
 
+        if ($key == 'seo') {
+            $setting->robots_txt = $setting->readRobotsTxt();
+        }
+
         $settings = Setting::where('status', '1')->get();
 
         return view('admin.settings.edit', compact('setting', 'settings'));
@@ -40,6 +44,13 @@ class SettingController extends Controller
         $setting->values = $request->values;
 
         $setting->save();
+
+        if ($request->has('robots_txt')) {
+            $robots_txt = $request->input('robots_txt');
+            if ($robots_txt) {
+                $setting->updateRobotsTxt($robots_txt);
+            }
+        }
 
         return redirect()->back();
     }

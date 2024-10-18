@@ -45,9 +45,6 @@ class Setting extends Model
                 if (isJson($value)) {
                     $value = json_decode($value, true);
                 }
-                if ($this->key == 'seo') {
-                    $value['robots_txt'] = $this->readRobotsTxt();
-                }
                 return $value;
             },
             set: function ($value) {
@@ -62,7 +59,7 @@ class Setting extends Model
     /**
      * @return false|string
      */
-    private function readRobotsTxt()
+    public function readRobotsTxt()
     {
         $path = public_path('robots.txt');
 
@@ -70,6 +67,30 @@ class Setting extends Model
             return file_get_contents($path);
         }
 
-        return "User-agent: *\nDisallow:";
+        return "User-agent: *\nAllow: /";
+    }
+
+    /**
+     * @param $new_content
+     * @return void
+     */
+    public function updateRobotsTxt($new_content)
+    {
+        try {
+            $path = public_path('robots.txt');
+            if (!file_exists($path)) {
+                file_put_contents($path, "");
+            }
+            $old_content = file_get_contents($path);
+            if ($new_content) {
+                if (preg_replace('/\s+/', '', $new_content) != preg_replace('/\s+/', '', $old_content)) {
+                    $file = fopen($path, "w");
+                    fwrite($file, $new_content);
+                    fclose($file);
+                }
+            }
+        } catch (\Exception $e) {
+            alert_message($e->getMessage());
+        }
     }
 }
