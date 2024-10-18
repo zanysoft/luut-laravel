@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>'Media'])
+@extends('admin.layouts.app',['title'=>'Media'])
 @section('content')
     <!-- Default box -->
     <div class="card">

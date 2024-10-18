@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('content')
     <div class="card">
         <form action="{{ route('admin.settings.update') }}" method="post" enctype="multipart/form-data">

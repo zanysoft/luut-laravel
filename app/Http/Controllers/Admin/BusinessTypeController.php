@@ -29,12 +29,12 @@ class BusinessTypeController extends Controller
                 ->addColumn('action', function ($model) {
                     return dtButtons([
                         'edit' => [
-                            'url' => route("admin.business-type.edit", [$model->id]),
+                            'url' => route("admin.business-types.edit", [$model->id]),
                             'title' => 'Edit',
                             'can' => 'business-types.edit',
                         ],
                         'delete' => [
-                            'url' => route("admin.business-type.destroy", [$model->id]),
+                            'url' => route("admin.business-types.destroy", [$model->id]),
                             'title' => 'Delete',
                             'can' => 'business-types.delete',
                             'data-method' => 'DELETE',

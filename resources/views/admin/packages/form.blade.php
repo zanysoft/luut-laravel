@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('breadcrumb')
     <div class="row mb-2">
         <div class="col-sm-6">
