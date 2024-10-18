@@ -26,12 +26,12 @@ class RegisterProfileController extends Controller
     {
         $businessTypes = BusinessType::active()->get();
         if ($businessTypes->count()) {
-            $businessTypes = BusinessTypeResource::make($businessTypes)->toArray($request);
+            $businessTypes = BusinessTypeResource::collection($businessTypes)->toArray($request);
         }
 
         $packages = Packages::active()->get();
         if ($packages->count()) {
-            $packages = PackagesResource::make($packages)->toArray($request);
+            $packages = PackagesResource::collection($packages)->toArray($request);
         }
 
         return Inertia::render('Auth/Profile', [

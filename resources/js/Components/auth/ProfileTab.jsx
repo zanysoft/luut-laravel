@@ -57,41 +57,19 @@ export default function ProfileTab({onBack}) {
     const props = usePage().props;
     const user = props.user;
 
-    console.log(props);
-
     const {data, setData, post, processing, errors, reset} = useForm(user);
 
     const [isLoading, setIsLoading] = useState(false);
     const [currentTab, setTab] = useState(0);
 
-    const [backendErrors, setBackendErrors] = useState({});
-
     const [error, setError] = useState({});
-    const [sent, setSent] = useState({});
 
     async function handleSubmit(callback) {
-        let _error = false;
-        setBackendErrors({});
         setError({});
-
-        if (_error) {
-            return;
-        }
         setIsLoading(true);
-
         post(route('register.profile'), {
             onSuccess: (res) => {
                 callback(res);
-            },
-            onError: (error) => {
-                console.log(error);
-                if (error.response?.data?.errors) {
-                    setBackendErrors(error.response.data.errors);
-                }
-                if (error.response?.data?.message) {
-                    setBackendErrors((p) => ({...p, error: error.response.data.message}));
-                }
-                setIsLoading(false);
             },
             onFinish: () => setIsLoading(false),
         });
@@ -117,7 +95,6 @@ export default function ProfileTab({onBack}) {
         var _tab = Math.min(currentTab + 1, (steps.length - 1));
         if (validateForm(currentTab)) {
             handleSubmit((res) => {
-                setBackendErrors({});
                 setTab(_tab);
             });
         }
@@ -141,15 +118,14 @@ export default function ProfileTab({onBack}) {
             <div className="mb-[30px]">
                 <h2 className="text-2xl font-bold text-black-2 mb-2.5"> {steps[currentTab].title}</h2>
                 <p className="text-gray-600 font-semibold text-base">{steps[currentTab].desc}</p>
-                {backendErrors.error || error.error && <Errors error={backendErrors.error || error.error}/>}
+                {error.error && <Errors error={error.error}/>}
             </div>
-
 
             {currentTab == 0 &&
                 <About
                     handleChange={handleChange}
                     error={error}
-                    backendErrors={backendErrors}
+                    backendErrors={errors}
                     formData={data}
                     setFormData={setData}
                 />
@@ -159,7 +135,7 @@ export default function ProfileTab({onBack}) {
                 <AboutBusiness
                     handleChange={handleChange}
                     error={error}
-                    backendErrors={backendErrors}
+                    backendErrors={errors}
                     formData={data}
                     setFormData={setData}
                 />
@@ -168,7 +144,7 @@ export default function ProfileTab({onBack}) {
                 <Address
                     handleChange={handleChange}
                     error={error}
-                    backendErrors={backendErrors}
+                    backendErrors={errors}
                     formData={data}
                     setFormData={setData}
                 />
@@ -177,7 +153,7 @@ export default function ProfileTab({onBack}) {
                 <Payment
                     handleChange={handleChange}
                     error={error}
-                    backendErrors={backendErrors}
+                    backendErrors={errors}
                     formData={data}
                     setFormData={setData}
                 />

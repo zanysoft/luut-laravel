@@ -3,7 +3,7 @@ import {Link, usePage} from "@inertiajs/react";
 //import { signOut, useSession } from "next-auth/react";
 
 export default function Header({menu}) {
-    const isLoggedIn = usePage().props.loggedin;
+    const isLoggedIn = usePage().props.auth.check;
 
     const session = useState({});
 
@@ -32,7 +32,7 @@ export default function Header({menu}) {
             <div className="container lg:py-6 md:py-3 mx-auto">
                 <div
                     className="flex md:flex-nowrap flex-wrap md:justify-between justify-center items-center w-full md:gap-12">
-                    <div className="flex items-center justify-between md:w-fit w-full hidden">
+                    <div className="flex items-center justify-between md:w-fit w-full">
                         <Link
                             href="/"
                             className="inline-block lg:w-[250px] md:w-[150px] w-[150px] md:text-start text-center"

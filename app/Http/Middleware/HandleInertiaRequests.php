@@ -32,8 +32,8 @@ class HandleInertiaRequests extends Middleware
     {
         $user = null;
         if (auth()->check()) {
-            $user = (new UserResource(auth()->user()))->toArray($request);
-            //$user = auth()->user()->toArray();
+            $user = (new UserResource(auth()->user()));//->toArray($request);
+           //$user = auth()->user()->toArray();
         }
 
         return [

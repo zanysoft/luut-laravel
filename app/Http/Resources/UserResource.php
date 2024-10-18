@@ -9,7 +9,7 @@ class UserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -37,7 +37,7 @@ class UserResource extends JsonResource
             'created_at' => $this->whenHas('created_at'),
             'status' => $this->whenHas('status'),
             'new' => $this->whenHas('new'),
-            'business' => $this->whenLoaded('business', BusinessResource::make($this->business)->toArray($request)),
+            'business' => $this->business ? BusinessResource::make($this->business)->toArray($request) : null,
         ];
     }
 }

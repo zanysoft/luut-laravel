@@ -4,14 +4,14 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import {Head, Link, useForm} from '@inertiajs/react';
 import Layout from "@/Layouts/Layout.jsx";
+import SocialLogin from "@/Components/auth/SocialLogin.jsx";
+import RegisterTab from "@/Components/auth/RegisterTab.jsx";
+import LeftCol from "@/Components/auth/LeftCol.jsx";
+import {useState} from "react";
 
 export default function Register() {
-    const {data, setData, post, processing, errors, reset} = useForm({
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-    });
+
+    const [formStep, setFormStep] = useState(1);
 
     const submit = (e) => {
         e.preventDefault();
@@ -24,96 +24,23 @@ export default function Register() {
     return (
         <Layout>
             <Head title="Register"/>
-
             <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="name" value="Name"/>
-
-                    <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.name} className="mt-2"/>
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email"/>
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.email} className="mt-2"/>
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password"/>
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.password} className="mt-2"/>
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
-                        required
-                    />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
-                    />
-                </div>
-
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
+                <section className="container w-full lg:min-h-screen lg:flex items-center justify-center md:p-8 p-4 pt-8 pb-16">
+                    <div className="w-full bg-white rounded-[20px] lg:h-[824px] flex lg:flex-row flex-col items-center lg:shadow-lg">
+                        <LeftCol />
+                        <div className="lg:px-[50px] lg:w-1/2 w-full overflow-hidden">
+                            {formStep === 1 && (
+                                <SocialLogin
+                                    page="signup"
+                                    continueWithEmail={() => {
+                                        setFormStep(2);
+                                    }}
+                                />
+                            )}
+                            {(formStep === 2) && <RegisterTab onBack={() => setFormStep(1)} />}
+                        </div>
+                    </div>
+                </section>
             </form>
         </Layout>
     );

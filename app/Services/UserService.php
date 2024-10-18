@@ -12,7 +12,7 @@ class UserService
     public function createUser(Request $request, ?User $user): User
     {
         if (!$user) {
-            $data = $request->except(['password_confirmation', 'token_id', 'password', 'token', 'provider']);
+            $data = $request->except(['password_confirmation', 'token_id', 'state', 'password', 'token', 'provider']);
             if ($request->has('password')) {
                 $data['password'] = Hash::make($request->password);
             }

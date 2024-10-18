@@ -8,8 +8,12 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredController;
+use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/auth/{provider}', [SocialLoginController::class, 'redirect'])->name('auth.redirect');
+Route::get('/auth/callback/{provider}', [SocialLoginController::class, 'callback'])->name('auth.callback');
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredController::class, 'create'])->name('register');
@@ -52,6 +56,6 @@ Route::middleware('auth')->group(function () {
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::post('logout', [AuthController::class, 'destroy'])
+    Route::get('logout', [AuthController::class, 'destroy'])
         ->name('logout');
 });
