@@ -17,7 +17,7 @@ class SettingController extends Controller
 
         //dd($settings);
 
-        return view('settings.index', compact('settings'));
+        return view('admin.settings.index', compact('settings'));
     }
 
     public function edit($key)
@@ -28,7 +28,7 @@ class SettingController extends Controller
 
         $settings = Setting::where('status', '1')->get();
 
-        return view('settings.edit', compact('setting', 'settings'));
+        return view('admin.settings.edit', compact('setting', 'settings'));
     }
 
     public function update(Request $request)

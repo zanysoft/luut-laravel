@@ -16,7 +16,7 @@ class RolesController extends Controller
 
         $roles = Role::all();
 
-        return view('roles.index', compact('roles'));
+        return view('admin.roles.index', compact('roles'));
     }
 
     public function create()
@@ -30,7 +30,7 @@ class RolesController extends Controller
             ->orderBy('task', 'ASC')
             ->get();
 
-        return view('roles.create', compact('permissions'));
+        return view('admin.roles.create', compact('permissions'));
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class RolesController extends Controller
 
         alert_message('Role created successfully.', 'success');
 
-        return redirect()->route('roles.edit', $role->id);
+        return redirect()->route('admin.roles.edit', $role->id);
     }
 
     public function edit($id)
@@ -77,7 +77,7 @@ class RolesController extends Controller
             ->orderBy('task', 'ASC')
             ->get();
 
-        return view('roles.edit', compact('role', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     public function update(Request $request)
@@ -124,7 +124,7 @@ class RolesController extends Controller
             alert_message('Role deleted successfully.', 'success');
         }
 
-        return redirect()->route('roles.index');
+        return redirect()->route('admin.roles.index');
     }
 
     public function resetPermissions()

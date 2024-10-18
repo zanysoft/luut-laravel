@@ -1,0 +1,10 @@
+.variable {
+    cursor: default;
+    background-color: #f0eded;
+    color: #ff0000 !important;
+    padding: 0 4px;
+    border-radius: 3px;
+    display: inline;
+    line-height: inherit;
+    margin: 0 2px;
+}

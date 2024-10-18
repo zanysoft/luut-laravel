@@ -9,6 +9,6 @@ class MediaController extends Controller
 {
     public function __invoke(){
 
-        return view('media');
+        return view('admin.media');
     }
 }

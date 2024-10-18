@@ -1,0 +1,103 @@
+{
+  "resources/css/fonts/Montserrat-Black.ttf": {
+    "file": "assets/Montserrat-Black-B-giSEIc.ttf",
+    "src": "resources/css/fonts/Montserrat-Black.ttf"
+  },
+  "resources/css/fonts/Montserrat-BlackItalic.ttf": {
+    "file": "assets/Montserrat-BlackItalic-_VIyAR1N.ttf",
+    "src": "resources/css/fonts/Montserrat-BlackItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-Bold.ttf": {
+    "file": "assets/Montserrat-Bold-DEcR8bPr.ttf",
+    "src": "resources/css/fonts/Montserrat-Bold.ttf"
+  },
+  "resources/css/fonts/Montserrat-BoldItalic.ttf": {
+    "file": "assets/Montserrat-BoldItalic-Dc3OOTVz.ttf",
+    "src": "resources/css/fonts/Montserrat-BoldItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-ExtraBold.ttf": {
+    "file": "assets/Montserrat-ExtraBold-n0CIQdUk.ttf",
+    "src": "resources/css/fonts/Montserrat-ExtraBold.ttf"
+  },
+  "resources/css/fonts/Montserrat-ExtraBoldItalic.ttf": {
+    "file": "assets/Montserrat-ExtraBoldItalic-BEqL1jKb.ttf",
+    "src": "resources/css/fonts/Montserrat-ExtraBoldItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-ExtraLight.ttf": {
+    "file": "assets/Montserrat-ExtraLight-B3F1yjZA.ttf",
+    "src": "resources/css/fonts/Montserrat-ExtraLight.ttf"
+  },
+  "resources/css/fonts/Montserrat-ExtraLightItalic.ttf": {
+    "file": "assets/Montserrat-ExtraLightItalic-BFtpzP1E.ttf",
+    "src": "resources/css/fonts/Montserrat-ExtraLightItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-Italic.ttf": {
+    "file": "assets/Montserrat-Italic-BM-WhxJ3.ttf",
+    "src": "resources/css/fonts/Montserrat-Italic.ttf"
+  },
+  "resources/css/fonts/Montserrat-Light.ttf": {
+    "file": "assets/Montserrat-Light-DZsnkBGO.ttf",
+    "src": "resources/css/fonts/Montserrat-Light.ttf"
+  },
+  "resources/css/fonts/Montserrat-LightItalic.ttf": {
+    "file": "assets/Montserrat-LightItalic-5YLxexJs.ttf",
+    "src": "resources/css/fonts/Montserrat-LightItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-Medium.ttf": {
+    "file": "assets/Montserrat-Medium-DZ4qtIu-.ttf",
+    "src": "resources/css/fonts/Montserrat-Medium.ttf"
+  },
+  "resources/css/fonts/Montserrat-MediumItalic.ttf": {
+    "file": "assets/Montserrat-MediumItalic-arubUw1m.ttf",
+    "src": "resources/css/fonts/Montserrat-MediumItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-Regular.ttf": {
+    "file": "assets/Montserrat-Regular-BQsUpcHj.ttf",
+    "src": "resources/css/fonts/Montserrat-Regular.ttf"
+  },
+  "resources/css/fonts/Montserrat-SemiBold.ttf": {
+    "file": "assets/Montserrat-SemiBold-B-lLb63I.ttf",
+    "src": "resources/css/fonts/Montserrat-SemiBold.ttf"
+  },
+  "resources/css/fonts/Montserrat-SemiBoldItalic.ttf": {
+    "file": "assets/Montserrat-SemiBoldItalic-B_WXPuQA.ttf",
+    "src": "resources/css/fonts/Montserrat-SemiBoldItalic.ttf"
+  },
+  "resources/css/fonts/Montserrat-Thin.ttf": {
+    "file": "assets/Montserrat-Thin-18xiG62o.ttf",
+    "src": "resources/css/fonts/Montserrat-Thin.ttf"
+  },
+  "resources/css/fonts/Montserrat-ThinItalic.ttf": {
+    "file": "assets/Montserrat-ThinItalic-hoRFcmAZ.ttf",
+    "src": "resources/css/fonts/Montserrat-ThinItalic.ttf"
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-B0ixZBT1.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/app-H4CncUL7.css"
+    ],
+    "assets": [
+      "assets/Montserrat-Thin-18xiG62o.ttf",
+      "assets/Montserrat-ThinItalic-hoRFcmAZ.ttf",
+      "assets/Montserrat-ExtraLight-B3F1yjZA.ttf",
+      "assets/Montserrat-ExtraLightItalic-BFtpzP1E.ttf",
+      "assets/Montserrat-Light-DZsnkBGO.ttf",
+      "assets/Montserrat-LightItalic-5YLxexJs.ttf",
+      "assets/Montserrat-Regular-BQsUpcHj.ttf",
+      "assets/Montserrat-Italic-BM-WhxJ3.ttf",
+      "assets/Montserrat-Medium-DZ4qtIu-.ttf",
+      "assets/Montserrat-MediumItalic-arubUw1m.ttf",
+      "assets/Montserrat-SemiBold-B-lLb63I.ttf",
+      "assets/Montserrat-SemiBoldItalic-B_WXPuQA.ttf",
+      "assets/Montserrat-Bold-DEcR8bPr.ttf",
+      "assets/Montserrat-BoldItalic-Dc3OOTVz.ttf",
+      "assets/Montserrat-ExtraBold-n0CIQdUk.ttf",
+      "assets/Montserrat-ExtraBoldItalic-BEqL1jKb.ttf",
+      "assets/Montserrat-Black-B-giSEIc.ttf",
+      "assets/Montserrat-BlackItalic-_VIyAR1N.ttf"
+    ]
+  }
+}

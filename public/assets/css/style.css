@@ -1,0 +1,261 @@
+.btn.disabled, .btn:disabled {
+    cursor: default;
+}
+
+.loading-spinner {
+    display: none;
+    z-index: 99999999999999999;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 17%);
+    margin: auto;
+}
+
+.loading-spinner .spinner-border {
+    margin: auto;
+    margin-top: 8%;
+}
+
+.dropdown.bootstrap-select button,
+.dropdown.bootstrap-select button:hover {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ced4da;
+}
+
+.dropdown.bootstrap-select button:focus,
+.dropdown.bootstrap-select button:active {
+    outline: none !important;
+    border-color: #80bdff;
+    background-color: #fff;
+    color: #495057;
+}
+
+.dropdown.bootstrap-select button:not(:disabled):not(.disabled).active,
+.dropdown.bootstrap-select button:not(:disabled):not(.disabled):active,
+.dropdown.bootstrap-select.show > button.dropdown-toggle {
+    outline: none !important;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #495057;
+}
+
+[data-toggle="collapse"] {
+    cursor: pointer;
+}
+
+.card.has-error {
+    border: 1px dotted #db0505;
+}
+
+.card.has-error .card-header {
+    color: #db0505;
+}
+
+.form-group {
+    position: relative;
+}
+
+#filters .form-inline .form-group:not(:last-child) {
+    margin-right: 5px;
+}
+
+#filters .filter-label {
+    /*background-color: #f8f9fa;
+    border-color: #ddd;*/
+    color: #444;
+    margin-right: 0px;
+}
+
+#filters .form-inline .form-group {
+    max-width: 160px;
+}
+
+#filters .form-inline .form-control {
+    max-width: 100%;
+}
+
+.nowrap {
+    white-space: nowrap !important;
+}
+
+.fm-wrapper {
+    position: relative;
+}
+
+.fm-wrapper .fm-preview {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 105000;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    background: rgba(0, 0, 0, 0.37);
+}
+
+.fm-wrapper .fm-preview .fm-inner {
+    position: relative;
+    width: auto;
+    max-width: 500px;
+    margin: 1.75rem auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    background-color: #FFFFFF;
+    background-clip: padding-box;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.fm-wrapper .fm-preview .close {
+    display: block;
+    position: absolute;
+    right: 4px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .5;
+    color: #000000;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.fm-wrapper .fm-preview .fm-body {
+    padding: 20px;
+}
+
+.fm-wrapper .fm-preview .fm-body video,
+.fm-wrapper .fm-preview .fm-body audio {
+    width: 100%;
+    outline: none;
+}
+
+.fm-wrapper .fm-preview img {
+    display: block;
+    max-width: 100% !important;
+    margin: 0 auto;
+}
+
+#dataTableBuilder, div.dt-container {
+    width: 100% !important;
+}
+
+div.dt-container div.dt-processing,
+div.dataTables_wrapper div.dataTables_processing {
+    position: fixed;
+    z-index: 999;
+}
+
+table.dataTable.dtr-column > tbody > tr > .dtr-control,
+table.dataTable.dtr-inline > tbody > tr > .dtr-control {
+    padding: 10px 0 0;
+    position: relative;
+}
+
+table.table-sm.dataTable.dtr-column > tbody > tr > .dtr-control, table.dataTable.dtr-inline > tbody > tr > .dtr-control {
+    padding: 4px 0 0;
+}
+
+table.dataTable.dtr-column.collapsed > tbody > tr > td.dtr-control::before,
+table.dataTable.dtr-column.collapsed > tbody > tr > th.dtr-control::before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control::before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control::before {
+    margin-left: 0.2em;
+    display: inline-block;
+    content: "+";
+    height: 14px;
+    width: 14px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 14px;
+    box-shadow: 0 0 3px #444;
+    box-sizing: content-box;
+    text-align: center;
+    text-indent: 0 !important;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 14px;
+    background-color: #6e6e6e;
+}
+
+table.dataTable.dtr-column.collapsed > tbody > tr.parent > td.dtr-control::before,
+table.dataTable.dtr-column.collapsed > tbody > tr.parent > th.dtr-control::before,
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control::before,
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control::before {
+    content: "-";
+    background-color: #dc3545;
+}
+
+table.dataTable.dtr-column.collapsed > tbody > tr.parent > td:first-child {
+    font-weight: 600;
+}
+
+table.dataTable.dtr-column.collapsed > tbody > tr.child > td.child {
+    border-top: none;
+    padding-top: 0;
+}
+
+table.dataTable.dtr-inline:not(.collapsed) > tbody > tr td.dtr-control::before,
+table.dataTable.dtr-column:not(.collapsed) > tbody > tr td.dtr-control::before {
+    display: none;
+    cursor: default;
+}
+
+div.dtfh-floatingparent {
+    background: #ffffff;
+}
+
+table .thumb {
+    max-height: 26px;
+}
+
+.alert ul {
+    padding: 0 0 0 16px;
+    margin: 0;
+}
+
+.alert .close {
+    margin: -10px -12px 0 0;
+}
+
+.login-page .alert {
+    position: relative;
+    padding: 2px 15px 2px 6px;
+    font-size: 15px;
+}
+
+.login-page .alert .close {
+    margin: 0;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.card > div[aria-expanded] {
+    cursor: pointer;
+}
+
+.card > div[aria-expanded]:after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #2f2f2f;
+    border-bottom: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-top: -5px;
+}
+
+.card > div[aria-expanded="true"]:after {
+    border-top: 0;
+    border-bottom: 8px solid #2f2f2f;
+}

@@ -69,7 +69,7 @@ class PackagesController extends Controller
                 ->setRowId('id')
                 ->editColumn('title', function ($model) {
                     if (auth()->user()->can('package.update')) {
-                        return '<a href="' . route('packages.edit', $model->id) . '" >' . trim($model->title) . '</a>';
+                        return '<a href="' . route('admin.packages.edit', $model->id) . '" >' . trim($model->title) . '</a>';
                     } else {
                         return trim($model->title);
                     }
@@ -92,12 +92,12 @@ class PackagesController extends Controller
                 ->addColumn('action', function ($model) {
                     return dtButtons([
                         'edit' => [
-                            'url' => route('packages.edit', [$model->id]),
+                            'url' => route('admin.packages.edit', [$model->id]),
                             'title' => 'Edit Package',
                             'can' => 'packages.edit',
                         ],
                         'delete' => [
-                            'url' => route('packages.destroy', [$model->id]),
+                            'url' => route('admin.packages.destroy', [$model->id]),
                             'title' => 'Delete Package',
                             'can' => 'packages.delete',
                             //'hide' => ($model->sales->count()),
@@ -119,7 +119,7 @@ class PackagesController extends Controller
             Column::make('action')->addClass('text-center')->orderable(false),
         ])->orderBy(1, 'ASC');
 
-        return view('packages.index', compact('html', 'title'));
+        return view('admin.packages.index', compact('html', 'title'));
     }
 
     /**
@@ -147,7 +147,7 @@ class PackagesController extends Controller
         $data['title'] = 'New Package';
         $data['plans'] = $plans;
 
-        return view('packages.form', $data);
+        return view('admin.packages.form', $data);
     }
 
     protected function addNmiPackage($name, $amount)
@@ -248,7 +248,7 @@ class PackagesController extends Controller
 
         if ($package->id) {
             alert_message(__('Successfully saved'), 'success');
-            return redirect()->route('packages.edit', $package->id);
+            return redirect()->route('admin.packages.edit', $package->id);
         } else {
             alert_message(__('Not saved'));
             return redirect()->back()->withInput();
@@ -267,7 +267,7 @@ class PackagesController extends Controller
 
         if (!$package) {
             alert_message(__('Package not found'));
-            return redirect()->route('packages.index');
+            return redirect()->route('admin.packages.index');
         }
 
         $plans = [];
@@ -289,7 +289,7 @@ class PackagesController extends Controller
         $data['package'] = Packages::where('id', '=', $id)->first();
         $data['plans'] = $plans;
 
-        return view('packages.form', $data);
+        return view('admin.packages.form', $data);
     }
 
     /**
@@ -391,7 +391,7 @@ class PackagesController extends Controller
         $package->save();
 
         alert_message(__('Successfully updated'), 'success');
-        return redirect()->route('packages.edit', $package->id);
+        return redirect()->route('admin.packages.edit', $package->id);
     }
 
     /**
@@ -419,7 +419,7 @@ class PackagesController extends Controller
             alert_message(__('Package not found'));
         }
 
-        return redirect()->route('packages.index');
+        return redirect()->route('admin.packages.index');
     }
 
     public function loadPlans(Request $request)
@@ -442,6 +442,6 @@ class PackagesController extends Controller
             });
         }
 
-        echo view('packages.inc.plans-field', compact('plans', 'method', 'package_type'))->render();
+        echo view('admin.packages.inc.plans-field', compact('plans', 'method', 'package_type'))->render();
     }
 }

@@ -29,12 +29,12 @@ class UsersController extends Controller
                 ->addColumn('action', function ($model) {
                     return dtButtons([
                         'edit' => [
-                            'url' => route("users.edit", [$model->id]),
+                            'url' => route("admin.users.edit", [$model->id]),
                             'title' => 'Edit User',
                             'can' => 'users.edit',
                         ],
                         'delete' => [
-                            'url' => route("users.destroy", [$model->id]),
+                            'url' => route("admin.users.destroy", [$model->id]),
                             'title' => 'Delete User',
                             'can' => 'users.delete',
                             'data-method' => 'DELETE',
@@ -50,7 +50,7 @@ class UsersController extends Controller
             Column::make('action')->addClass('text-center')->orderable(false),
         ])->orderBy(1, 'ASC');
 
-        return view('users.index', compact('html'));
+        return view('admin.users.index', compact('html'));
     }
 
     public function create()
@@ -59,7 +59,7 @@ class UsersController extends Controller
 
         $roles = Role::all();
 
-        return view('users.create', compact('roles'));
+        return view('admin.users.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -104,7 +104,7 @@ class UsersController extends Controller
 
         alert_message('User created successfully.', 'success');
 
-        return redirect()->route('users.edit', $user->id);
+        return redirect()->route('admin.users.edit', $user->id);
     }
 
     public function edit($id)
@@ -115,7 +115,7 @@ class UsersController extends Controller
 
         $roles = Role::all();
 
-        return view('users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request)
@@ -184,6 +184,6 @@ class UsersController extends Controller
 
             alert_message('User deleted successfully.', 'success');
         }
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 }

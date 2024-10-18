@@ -29,12 +29,12 @@ class BusinessTypeController extends Controller
                 ->addColumn('action', function ($model) {
                     return dtButtons([
                         'edit' => [
-                            'url' => route("business-type.edit", [$model->id]),
+                            'url' => route("admin.business-type.edit", [$model->id]),
                             'title' => 'Edit',
                             'can' => 'business-types.edit',
                         ],
                         'delete' => [
-                            'url' => route("business-type.destroy", [$model->id]),
+                            'url' => route("admin.business-type.destroy", [$model->id]),
                             'title' => 'Delete',
                             'can' => 'business-types.delete',
                             'data-method' => 'DELETE',
@@ -50,7 +50,7 @@ class BusinessTypeController extends Controller
             Column::make('action')->addClass('text-center')->orderable(false),
         ])->orderBy(1, 'ASC');
 
-        return view('business-types.index', compact('html'));
+        return view('admin.business-types.index', compact('html'));
     }
 
     public function create()
@@ -76,14 +76,14 @@ class BusinessTypeController extends Controller
 
         alert_message('Business type created successfully.', 'success');
 
-        return redirect()->route('business-types.edit', $model->id);
+        return redirect()->route('admin.business-types.edit', $model->id);
     }
 
     public function edit(BusinessType $businessType)
     {
         $this->hasPermisstion('edit');
 
-        return view('business-types.form', [
+        return view('admin.business-types.form', [
             'item' => $businessType
         ]);
     }
@@ -123,6 +123,6 @@ class BusinessTypeController extends Controller
             alert_message('Record deleted successfully.', 'success');
         }
 
-        return redirect()->route('business-types.index');
+        return redirect()->route('admin.business-types.index');
     }
 }
